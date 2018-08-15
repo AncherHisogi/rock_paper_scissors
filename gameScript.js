@@ -1,8 +1,29 @@
 let pcHand;
 let huHand;
+let huButton;
 let huRes = 0;
 let pcRes = 0;
+const rock_div = document.getElementById("r");
+const paper_div = document.getElementById("p");
+const sci_div = document.getElementById("s");
 
+rock_div.addEventListener('click', function()
+{
+    huButton = "rock";
+    game();
+})
+
+paper_div.addEventListener('click', function()
+{
+    huButton = "paper";
+    game();
+})
+
+sci_div.addEventListener('click', function()
+{
+    huButton = "scissors";
+    game();
+})
 
 function rng()
 {
@@ -31,7 +52,7 @@ function computerPlay(str)
 function humanPlay(str)
 {
     
-    switch(huHand.toLowerCase())
+    switch(huButton)
     {
         case "rock":
             huHand = "r";
@@ -60,42 +81,35 @@ function loseHu()
 }
 function draw()
 {
+    console.log("DRAW")
 }
 
 function game()
 {
-    while (huRes < 5 && pcRes <5)
+
+    switch(humanPlay()+computerPlay())
     {
-        huHand = window.prompt();
-        switch(humanPlay()+computerPlay())
-        {
-            case "rs":
-            case "pr":
-            case "sp":
-                winHu();
-                break;
-
-            case "rp":
-            case "ps":
-            case "sr":
-                loseHu();
-                break;
-
-            case "rr":
-            case "pp":
-            case "ss":
-                draw();
-                break;
-
-        }
-        score();
+        case "rs":
+        case "pr":
+        case "sp":
+            winHu();
+            break;
+        case "rp":
+        case "ps":
+        case "sr":
+            loseHu();
+            break;
+        case "rr":
+        case "pp":
+        case "ss":
+            draw();
+            break;
     }
+    score();
 }
 
 function score()
 {
-    console.log("Player::" +huRes);
+    console.log("Player::" +huRes +huHand);
     console.log("PC ::" +pcRes);
 }
-
-game();
