@@ -1,7 +1,8 @@
 let pcHand;
 let huHand;
-let gameRes;
-huHand = window.prompt();
+let huRes = 0;
+let pcRes = 0;
+
 
 function rng()
 {
@@ -14,13 +15,13 @@ function computerPlay(str)
     switch(rng())
     {
         case 0:
-            pcHand = "rock";
+            pcHand = "r";
             break;
         case 1:
-            pcHand = "paper";
+            pcHand = "p";
             break;
         case 2:
-            pcHand = "scissors";
+            pcHand = "s";
             break;
     }
     return pcHand;
@@ -33,67 +34,68 @@ function humanPlay(str)
     switch(huHand.toLowerCase())
     {
         case "rock":
-            huHand = "rock";
+            huHand = "r";
             break;
         case "paper":
-            huHand = "paper";
+            huHand = "p";
             break;
         case "scissors":
-            huHand = "scissors";
+            huHand = "s";
             break;        
     }
     return huHand;
 
 }
 
-function game(str)
+function winHu()
 {
+    huRes++;
+    return huRes;
+}
 
-    switch(humanPlay()+computerPlay())
+function loseHu()
+{
+    pcRes++;
+    return pcRes;
+}
+function draw()
+{
+}
+
+function game()
+{
+    while (huRes < 5 && pcRes <5)
     {
-        case "rockrock":
-            gameRes = "TIE";
-            break;
+        huHand = window.prompt();
+        switch(humanPlay()+computerPlay())
+        {
+            case "rs":
+            case "pr":
+            case "sp":
+                winHu();
+                break;
 
-        case "rockpaper":
-            gameRes = "PC WINS";
-            break;
+            case "rp":
+            case "ps":
+            case "sr":
+                loseHu();
+                break;
 
-        case "rockscissors":
-            gameRes = "HUMAN WINS";
-            break;
+            case "rr":
+            case "pp":
+            case "ss":
+                draw();
+                break;
 
-        case "paperrock":
-            gameRes = "HUMAN WINS";
-            break;
-
-        case "paperpaper":
-            gameRes = "TIE";
-            break;
-
-        case "paperscissors":
-            gameRes = "PC WINS";
-            break;
-
-        case "scissorsrock":
-            gameRes = "PC WINS";
-            break;
-
-        case "scissorspaper":
-            gameRes = "HUMAN WINS";
-            break;
-        
-        case "scissorsscissors":
-            gameRes = "TIE";
-            break;
+        }
+        score();
     }
-    return gameRes
 }
 
-function gameRound()
+function score()
 {
-    var round;
-    for (round = 0;  )
+    console.log("Player::" +huRes);
+    console.log("PC ::" +pcRes);
 }
 
-console.log(game());
+game();
