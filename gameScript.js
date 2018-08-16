@@ -3,6 +3,8 @@ let huHand;
 let huButton;
 let huRes = 0;
 let pcRes = 0;
+let userScore_span = document.getElementById("user-score")
+let pcScore_span = document.getElementById("pc-score")
 const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
 const sci_div = document.getElementById("s");
@@ -110,6 +112,6 @@ function game()
 
 function score()
 {
-    console.log("Player::" +huRes +huHand);
-    console.log("PC ::" +pcRes);
+    userScore_span.innerHTML = huRes;
+    pcScore_span.innerHTML = pcRes;
 }
