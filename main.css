@@ -1,50 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 *
 {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-
+h1
+{
+    background-color: #E0F2F1;
+    height: 10%;
+    color: #004D40;
+    text-align: center;
+    padding-top: 30px;
+    box-shadow: 0px 0px 8px gray;
+    font-family: 'Roboto', sans-serif;
+}
+#textH1
+{
+    box-shadow: 0px 0px 0px;
+    color: #00796B;
+}
 body
 {
-    background-color: #24262e;
+    background-color: #26A69A;
 }
 
 .score-board
 {
     margin: 100px auto;
     border-radius: 10px;
-    border: 4px solid white;
+    border: 4px solid #E8EAF6;
     width:200px;
-    color: white;
+    color: #E8EAF6;
     font-size: 40px;
     text-align: center;
     padding: 20px 20px;
     position: relative;
+    box-shadow: 0px 2px 7px gray;
     
 }
 
+
 .badge
 {
-    background-color: lightcoral;
-    font-size: 18px;
+    background-color: #00796B;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
     padding: 2px 11px;
+
 }
 
 #user-label
 {
     position: absolute;
     top:30px;
-    left:-20px;
-    border-radius: 20%;
+    left:-65px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 7px gray;
 
 }
 #pc-label
 {
     position: absolute;
     top:30px;
-    right:-20px;
-    border-radius: 20%;
+    right:-75px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 7px gray;
 }
 
 .result
@@ -74,7 +96,7 @@ img
     width:100px;
     height:100px;
     border-radius: 50%;
-    box-shadow: 0px 0px 10px #82c9bf;
+    box-shadow: 0px 0px 10px gray;
 }
 
 img:hover
