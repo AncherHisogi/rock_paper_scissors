@@ -74,19 +74,31 @@ function humanPlay(str)
 function winHu()
 {
     huRes++;
-    score_p.innerHTML = "YOU WIN";
+    
+    if(huRes == 5)
+    {
+        huRes = 0;
+        pcRes = 0;
+        score_p.innerHTML = "YOU WIN";
+    }
     return huRes;
+    
 }
 
 function loseHu()
 {
     pcRes++;
-    score_p.innerHTML = "YOU LOSE";
+    if(pcRes == 5)
+    {
+        huRes = 0;
+        pcRes = 0;
+        score_p.innerHTML = "YOU LOSE";
+    }
     return pcRes;
 }
 function draw()
 {
-    score_p.innerHTML = "ITS A DRAW";
+    score_p.innerHTML = "draw";
 }
 
 function game()
@@ -95,13 +107,27 @@ function game()
     switch(humanPlay()+computerPlay())
     {
         case "rs":
+            score_p.innerHTML = "Rock beats Scissors";
+            winHu();
+            break;
         case "pr":
+            score_p.innerHTML = "Paper beats Rock";
+            winHu();
+            break;
         case "sp":
+            score_p.innerHTML = "Scissors beats Paper";
             winHu();
             break;
         case "rp":
+            score_p.innerHTML = "Rock looses to Paper";
+            loseHu();
+            break;
         case "ps":
+            score_p.innerHTML = "Paper looses to Scissors";
+            loseHu();
+            break;
         case "sr":
+            score_p.innerHTML = "Scissors looses to Rock";
             loseHu();
             break;
         case "rr":
