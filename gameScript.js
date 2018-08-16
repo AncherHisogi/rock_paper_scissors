@@ -3,6 +3,7 @@ let huHand;
 let huButton;
 let huRes = 0;
 let pcRes = 0;
+let score_p = document.getElementById("score")
 let userScore_span = document.getElementById("user-score")
 let pcScore_span = document.getElementById("pc-score")
 const rock_div = document.getElementById("r");
@@ -73,17 +74,19 @@ function humanPlay(str)
 function winHu()
 {
     huRes++;
+    score_p.innerHTML = "YOU WIN";
     return huRes;
 }
 
 function loseHu()
 {
     pcRes++;
+    score_p.innerHTML = "YOU LOSE";
     return pcRes;
 }
 function draw()
 {
-    console.log("DRAW")
+    score_p.innerHTML = "ITS A DRAW";
 }
 
 function game()
