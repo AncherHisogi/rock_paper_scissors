@@ -1,3 +1,4 @@
+//js script
 let pcHand;
 let huHand;
 let huButton;
